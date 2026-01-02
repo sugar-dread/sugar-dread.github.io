@@ -33,15 +33,29 @@ nav ul li a i {
   text-align: left;
 }
 
-/* Fix for profile pic in nav */
-.nav-profile-pic {
-  display: block;
-  text-align: left;
-  padding-left: 20px;
+.side-nav li.logo {
+  padding: 50px 0 !important;
+  text-align: center !important;
+  min-height: 100px !important;
+  display: flex !important;
+  align-items: left !important;
+  justify-content: left !important;
 }
 
-.nav-profile-pic img {
-  margin: 10px 0;
+nav.hide-on-small-only .side-nav.fixed li.logo a img.profile-pic,
+nav.hide-on-small-only ul.side-nav li.logo img,
+.side-nav li.logo img.circle,
+.side-nav li.logo img.profile-pic,
+li.logo a img,
+li.logo img {
+  width: 200px !important; /* Increased width */
+  height: 200px !important; /* Much taller height - fills the area */
+  object-fit: cover !important;
+}
+
+/* Override any Materialize circle defaults */
+.circle {
+  border-radius: 10px !important;
 }
 
 /* Fix Layout Issues - Prevent Content Duplication */
@@ -219,3 +233,98 @@ nav.hide-on-med-and-down {
     font-size: 14px;
   }
 }
+
+/* ...existing code... */
+
+/* Lightbox Styles */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  color: #26a69a;
+}
+
+/* Add hover effect to profile picture to indicate it's clickable */
+.side-nav li.logo a img.profile-pic {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.side-nav li.logo a:hover img.profile-pic {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+  cursor: pointer;
+}
+
+.profile-pic-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.profile-pic-button:focus {
+  outline: 2px solid #26a69a;
+  outline-offset: 2px;
+}
+

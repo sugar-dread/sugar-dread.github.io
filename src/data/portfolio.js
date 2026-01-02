@@ -12,7 +12,7 @@ export const portfolioData = {
   },
   
   contact: {
-    phone: "+49 1522 6199844",
+    phone: "-",
     email: "anilseker89@gmail.com",
     github: "https://github.com/sugar-dread",
     linkedin: "https://www.linkedin.com/in/65ab8348/"

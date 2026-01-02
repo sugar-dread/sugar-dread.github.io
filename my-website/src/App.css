@@ -1,38 +1,221 @@
+/* Navigation Fixes - Left Alignment */
+.side-nav li a {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start !important;
+  padding-left: 20px !important;
+}
+
+.side-nav li a i {
+  margin-right: 15px;
+  min-width: 24px;
+}
+
+.side-nav li a span {
+  text-align: left;
+}
+
+/* Desktop Navigation - Left Alignment */
+nav ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 15px;
+}
+
+nav ul li a i {
+  margin-right: 10px;
+}
+
+/* Mobile Nav Header */
+.name-title {
+  padding-left: 20px;
+  text-align: left;
+}
+
+/* Fix for profile pic in nav */
+.nav-profile-pic {
+  display: block;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.nav-profile-pic img {
+  margin: 10px 0;
+}
+
+/* Fix Layout Issues - Prevent Content Duplication */
+body, html {
+  overflow-x: hidden;
+  height: 100%;
+}
+
 .App {
-  text-align: center;
+  min-height: 100vh;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Fix main content area */
+main {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Prevent sections from repeating */
+section {
+  position: relative;
+  width: 100%;
+}
+
+/* Fix sidebar navigation position */
+nav.hide-on-med-and-down {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+/* Adjust main content to account for fixed sidebar */
+@media (min-width: 993px) {
+  main {
+    margin-left: 240px; /* Width of sidebar */
   }
 }
 
-.App-header {
-  background-color: #282c34;
+/* Ensure no duplicate rendering */
+.App > main {
+  display: block;
+}
+
+
+/* Hero Section Styles */
+#intro {
+  background: linear-gradient(135deg, #667eea 0%, #37125c 100%);
+  padding: 100px 0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
-.App-link {
-  color: #61dafb;
+.hero-greeting {
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(134, 56, 56, 0.9);
+  margin: 0 0 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero-name {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #881212;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.hero-taglines {
+  font-size: 1.4rem;
+  color: #ffd700;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Responsive Hero Section */
+@media (max-width: 992px) {
+  .hero-name {
+    font-size: 3.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-taglines {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #intro {
+    padding: 60px 0;
+  }
+  
+  .hero-greeting {
+    font-size: 1.5rem;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  
+  .hero-taglines {
+    font-size: 2rem;
+  }
+}
+
+/* Contact Section Styles */
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  gap: 15px;
+}
+
+.contact-item i {
+  font-size: 24px;
+  color: #26a69a;
+  min-width: 30px;
+  margin: 0 !important;
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-text strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.contact-text a {
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.contact-text a:hover {
+  text-decoration: underline;
+}
+
+#contact .card-panel {
+  padding: 30px;
+}
+
+@media (max-width: 600px) {
+  .contact-item {
+    flex-direction: row;
+    padding: 10px 0;
+  }
+  
+  .contact-text {
+    font-size: 14px;
   }
 }
